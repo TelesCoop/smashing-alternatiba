@@ -1,0 +1,9 @@
+organization_slug: telescoop
+base_project_slug: alternatiba
+main_user: alternatiba
+main_user_uid: 10097  # TODO must be unique for each project on the server
+backend_repo: git@github.com:{{ organization_slug }}/{{ base_project_slug }}/backend.git
+backend_identity_file_path: /home/{{ main_user }}/.ssh/id_ed25519_backend
+var_log_path: /var/log/{{ organization_slug }}/{{ project_slug }}
+project_base_dir: /{{ organization_slug }}/{{ base_project_slug }}
+supervisor_conf: /etc/supervisor/conf.d
