@@ -1,2 +1,2 @@
 [prod]
-subdomain.my-website.com:my_ssh_port ansible_user=ubuntu
+smash.tlscp.fr:22 ansible_user=telescoop

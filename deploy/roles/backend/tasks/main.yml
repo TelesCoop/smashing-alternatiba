@@ -5,6 +5,12 @@
       - nginx
       - supervisor
 
+- name: Create main user {{ main_user }}
+  user:
+    name: "{{ main_user }}"
+    uid: "{{ main_user_uid }}"
+    shell: /bin/bash
+
 - name: Create directories and set permissions
   file:
     path: "{{ item.path }}"

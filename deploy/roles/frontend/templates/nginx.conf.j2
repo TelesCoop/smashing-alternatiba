@@ -4,12 +4,6 @@ upstream app_servers_{{ project_slug }} {
   server 127.0.0.1:{{ backend_application_port }};
 }
 
-{% if frontend_mode == "SSR" %}
-upstream app_frontend_{{ project_slug }} {
-  server 127.0.0.1:{{ frontend_application_port }};
-}
-{% endif %}
-
 server {
 
     listen 80;
@@ -30,38 +24,13 @@ server {
     gzip_vary on;
     gzip_types application/json application/javascript application/xml text/css text/javascript text/plain text/xml image/svg+xml;
 
-    # backend static stuff
-    location /static  {
-        autoindex off;
-        alias {{ backend_static_path }};
+    location / {
+        proxy_pass         http://app_servers_{{ project_slug }};
+        proxy_redirect     off;
+        proxy_set_header   Host $host;
+        proxy_set_header   X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Host $server_name;
+        proxy_set_header   X-Forwarded-Proto $scheme;
     }
-
-    {% for uri in server_uris_passed_to_backend %}
-        location /{{ uri }}/ {
-            proxy_pass         http://app_servers_{{ project_slug }};
-            proxy_redirect     off;
-            proxy_set_header   Host $host;
-            proxy_set_header   X-Real-IP $remote_addr;
-            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header   X-Forwarded-Host $server_name;
-            proxy_set_header   X-Forwarded-Proto $scheme;
-        }
-    {% endfor %}
-
-    # send all the rest to the frontend
-    {% if frontend_mode == "SSR"%}
-        location / {
-            proxy_pass         http://app_frontend_{{ project_slug }}/;
-            proxy_redirect     off;
-            proxy_set_header   Host $host;
-            proxy_set_header   X-Real-IP $remote_addr;
-            proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
-            proxy_set_header   X-Forwarded-Host $server_name;
-        }
-    {% elif frontend_mode == "static" %}
-        location / {
-            try_files $uri /index.html =404;
-            root {{ frontend_static_path }};
-        }
-    {% endif %}
 }
