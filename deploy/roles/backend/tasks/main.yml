@@ -101,5 +101,11 @@
 - name: Restart {{ project_slug }} supervisor
   supervisorctl:
     name: "{{ project_slug }}-backend"
-    state: restarted
+    state: stopped
+  when: clonecode.changed or force_update is defined
+
+- name: Restart {{ project_slug }} supervisor
+  supervisorctl:
+    name: "{{ project_slug }}-backend"
+    state: started
   when: clonecode.changed or force_update is defined
