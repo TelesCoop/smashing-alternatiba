@@ -1,11 +1,11 @@
 // ----------------------------------------------------------------------------
 // Sass declarations
 // ----------------------------------------------------------------------------
-$background-color: #47bbb3;
-$value-color: #fff;
+$background-color: #FECE00;
+$value-color: #690F0F;
 
-$title-color: rgba(255, 255, 255, 0.7);
-$moreinfo-color: rgba(255, 255, 255, 0.7);
+$title-color: rgba(105, 15, 15, 0.7);
+$moreinfo-color: rgba(105, 15, 15, 0.7);
 
 // ----------------------------------------------------------------------------
 // Widget-number styles
@@ -37,34 +37,34 @@ $moreinfo-color: rgba(255, 255, 255, 0.7);
   }
 }
 
-.widget-number.total_group_count {
-  background: linear-gradient(0.25turn, #00804d, #ebf8e1, #fece00);
-}
+// .widget-number.total_group_count {
+//   background: linear-gradient(0.25turn, #00804d, #ebf8e1, #fece00);
+// }
 
-.widget-number.alternatiba_group_count {
-  background: #00804d;
-}
+// .widget-number.alternatiba_group_count {
+//   background: #00804d;
+// }
 
-.widget-number.anv_group_count {
-  background-color: #fece00;
-}
+// .widget-number.anv_group_count {
+//   background-color: #fece00;
+// }
 
-.widget-number.alterterri_group_count {
-  background: #000839;
-}
+// .widget-number.alterterri_group_count {
+//   background: #000839;
+// }
 
-.widget-number.international_group_count {
-  background: #d64c4c;
-}
+// .widget-number.international_group_count {
+//   background: #d64c4c;
+// }
 
-.widget-number.common_group_count {
-  background: #d64c4c;
-}
+// .widget-number.common_group_count {
+//   background: #d64c4c;
+// }
 
-.widget-number.alternatibases_count {
-  background: #d64c4c;
-}
+// .widget-number.alternatibases_count {
+//   background: #d64c4c;
+// }
 
-.widget-number.bilan_count {
-  background: #00804d;
-}
+// .widget-number.bilan_count {
+//   background: #00804d;
+// }

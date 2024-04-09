@@ -98,7 +98,7 @@
   become_user: "{{ main_user }}"
   register: clonecode
 
-- name: Restart {{ project_slug }} supervisor
+- name: Stop {{ project_slug }} supervisor
   supervisorctl:
     name: "{{ project_slug }}-backend"
     state: stopped
@@ -108,7 +108,7 @@
   ansible.builtin.pause:
     minutes: 1
 
-- name: Restart {{ project_slug }} supervisor
+- name: Start {{ project_slug }} supervisor
   supervisorctl:
     name: "{{ project_slug }}-backend"
     state: started
