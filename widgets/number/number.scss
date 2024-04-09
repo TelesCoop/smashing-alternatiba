@@ -3,9 +3,31 @@
 // ----------------------------------------------------------------------------
 $background-color: #FECE00;
 $value-color: #690F0F;
-
 $title-color: rgba(105, 15, 15, 0.7);
 $moreinfo-color: rgba(105, 15, 15, 0.7);
+
+
+$alternatiba-background-color: #00804D;
+$alternatiba-value-color: #fff;
+
+$alternatiba-title-color: rgba(255, 255, 255, 0.7);
+$alternatiba-moreinfo-color: rgba(255, 255, 255, 0.7);
+
+.alternatiba {
+  .widget-number {
+
+    background-color: $alternatiba-background-color;
+
+    .title {
+      color: $alternatiba-title-color;
+    }
+
+    .value {
+      color: $alternatiba-value-color;
+    }
+  }
+}
+
 
 // ----------------------------------------------------------------------------
 // Widget-number styles
