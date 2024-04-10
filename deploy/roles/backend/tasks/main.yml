@@ -106,7 +106,7 @@
 
 - name: Pause for 1 minute so that port becomes available again
   ansible.builtin.pause:
-    minutes: 1
+    minutes: 2
 
 - name: Start {{ project_slug }} supervisor
   supervisorctl:
