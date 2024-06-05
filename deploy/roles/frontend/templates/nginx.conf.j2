@@ -5,7 +5,6 @@ upstream app_servers_{{ project_slug }} {
 }
 
 server {
-
     listen 80;
 
     server_name {{ " ".join(public_hostnames) }};
