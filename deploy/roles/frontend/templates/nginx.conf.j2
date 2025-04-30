@@ -29,6 +29,9 @@ server {
     gzip_types application/json application/javascript application/xml text/css text/javascript text/plain text/xml image/svg+xml;
 
     location / {
+        proxy_hide_header X-Frame-Options;
+        proxy_set_header Content-Security-Policy "frame-ancestors *;";
+
         proxy_pass         http://app_servers_{{ project_slug }};
         proxy_redirect     off;
         proxy_set_header   Host $host;
